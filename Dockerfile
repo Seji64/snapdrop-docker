@@ -31,7 +31,7 @@ RUN cd /home/node/app && npm install
 
 WORKDIR /home/node/app
 
-CMD echo "Starting Snapdrop..." & node index.js & echo "Starting nginx..." & nginx & echo "Startup complete"
+CMD echo "Starting Snapdrop..." & node index.js & echo "Starting nginx..." & nginx
 
 EXPOSE 80
     
