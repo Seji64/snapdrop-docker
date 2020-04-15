@@ -5,6 +5,8 @@ RUN apk update && apk upgrade
 
 RUN apk add --no-cache git && \
     apk add --no-cache nginx && \
+    apk add --no-cache curl && \
+    apk add --no-cache ca-certificates && \
     rm -rf /var/cache/apk/*
 
 RUN adduser -D -g 'www' www && \
@@ -22,11 +24,9 @@ RUN cd /tmp/ && \
 RUN mkdir -p /home/node/app && \
     cp -rv /tmp/snapdrop/server/* /home/node/app/ && \
     cp -rv /tmp/snapdrop/client/* /usr/share/nginx/html/ && \
-    cp -rv /tmp/snapdrop/nginx/default.conf /etc/nginx/conf.d/default.conf && \
+    curl https://raw.githubusercontent.com/Seji64/snapdrop-docker/master/nginx/default.conf --output /etc/nginx/conf.d/default.conf && \
     rm -rf /tmp/snapdrop/
     
-RUN sed -i "s|http://node:3000|http://127.0.0.1:3000|g" /etc/nginx/conf.d/default.conf
-
 RUN cd /home/node/app && npm install
 
 WORKDIR /home/node/app
