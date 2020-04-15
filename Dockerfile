@@ -17,7 +17,7 @@ RUN adduser -D -g 'www' www && \
     echo "daemon off;" >> /etc/nginx/nginx.conf
 
 RUN cd /tmp/ && \
-    git clone https://github.com/ll911/snapdrop
+    git clone https://github.com/RobinLinus/snapdrop
 
 RUN mkdir -p /home/node/app && \
     cp -rv /tmp/snapdrop/server/* /home/node/app/ && \
