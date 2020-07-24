@@ -2,8 +2,6 @@
 
 This is a Docker Image for latest version of Snapdrop (https://snapdrop.net)
 
-I used an updated repo of Snapdrop (https://github.com/ll911/snapdrop) => THX!
-
 # How to Run
 
 ## CLI
